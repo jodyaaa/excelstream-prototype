@@ -69,12 +69,14 @@ body:not([data-auth="guest"]) .promo { display: none !important; }
 .icon-btn:hover { background: var(--color-bg-subtle); }
 .icon-btn__badge { position: absolute; top: 2px; right: 2px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px; display: grid; place-items: center; background: var(--color-status-live); color: var(--color-text-on-color); font-size: 10px; line-height: 1; font-weight: var(--fw-bold); }
 
-.skeleton { background: linear-gradient(100deg, var(--color-bg-placeholder) 30%, var(--skeleton-shine) 50%, var(--color-bg-placeholder) 70%) 0 0 / 200% 100% no-repeat; animation: shimmer 1.4s linear infinite; border-radius: var(--radius-md); }
+/* Skeleton: flat color block + a highlight that slides across with `transform` (compositor-only, so it stays smooth with dozens on screen) */
+.skeleton { position: relative; overflow: hidden; background: var(--color-bg-placeholder); border-radius: var(--radius-md); }
+.skeleton::after, .overlay-card.card--skeleton::after, .portrait-card.skeleton::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(100deg, transparent 20%, var(--skeleton-shine) 50%, transparent 80%); transform: translate3d(-100%, 0, 0); animation: shimmer 1.6s cubic-bezier(.4, 0, .2, 1) infinite; will-change: transform; }
 .skeleton--line { display: block; height: 14px; border-radius: 4px; }
 .skeleton--short { width: 45%; margin-top: 6px; }
-/* a skeleton is a plain color block: no default-image icon, and the card's own `background` shorthand must not override it */
-.skeleton:is(.live-card__thumb, .overlay-card, .portrait-card, .avatar) { background: linear-gradient(100deg, var(--color-bg-placeholder) 30%, var(--skeleton-shine) 50%, var(--color-bg-placeholder) 70%) 0 0 / 200% 100% no-repeat; }
-@keyframes shimmer { from { background-position-x: 100%; } to { background-position-x: 0%; } }
+/* the card's own `background` shorthand (default-image icon) must not leak into a skeleton */
+.skeleton:is(.live-card__thumb, .overlay-card, .portrait-card, .avatar) { background: var(--color-bg-placeholder); }
+@keyframes shimmer { to { transform: translate3d(100%, 0, 0); } }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ── app shell ─────────────────────────────────────────────────────────── */
@@ -164,7 +166,6 @@ body:not([data-auth="guest"]) .promo { display: none !important; }
 .overlay-card__channel { font-size: var(--fs-13); line-height: 16px; color: var(--color-text-on-media-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .overlay-card.card--skeleton { border-radius: var(--radius-xl); }
 .avatar.skeleton { border-radius: 50%; }
-.overlay-card.card--skeleton::after, .portrait-card.skeleton::after { content: none; } /* no media scrim on a placeholder */
 .curation__more { margin-top: 16px; }
 .curation__more:empty { display: none; }
 
