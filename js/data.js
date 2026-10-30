@@ -1,4 +1,4 @@
-import { getParams } from './params.js';
+import { getParams } from './params.js?v=213723';
 // Mock data layer. Replace `fetchLivePage` / `fetchPopularPage` with real API calls.
 // Media files are looping clips; in production `video` is an HLS/LL-HLS stream URL.
 

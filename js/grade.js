@@ -1,7 +1,7 @@
 // Sidebar · Member grade card (Lv1 → Lv7). Mascot images: assets/img/grade/lv{n}.png (left = lowest).
-import { icons } from './icons.js';
-import { GRADES } from './data.js';
-import { formatNumber } from './components.js';
+import { icons } from './icons.js?v=213723';
+import { GRADES } from './data.js?v=213723';
+import { formatNumber } from './components.js?v=213723';
 
 export function renderGrade(el, member) {
   const cur = GRADES[member.level - 1];

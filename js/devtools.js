@@ -1,7 +1,7 @@
 // Developer panel (bottom-right "DEV"): switch viewer state / grade / theme / cold cases without editing the URL,
 // and overlay Figma component names (`data-figma`) on the page. Hide it with `?dev=0` (or the ✕ in the panel).
 // State is stored by js/params.js (sessionStorage) so it also works where the query string is unavailable (embedded viewers).
-import { getParams, saveParams } from './params.js';
+import { getParams, saveParams, QA_KEYS } from './params.js?v=213723';
 
 const store = (k, v) => { try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch { /* blocked */ } };
 const stored = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
@@ -13,7 +13,7 @@ export function initDevtools() {
   const val = (k, d = '') => q.get(k) ?? d;
   const set = (patch) => {
     const next = {};
-    ['auth', 'grade', 'delay', 'fail', 'offline', 'ended'].forEach((k) => (next[k] = q.get(k)));
+    QA_KEYS.forEach((k) => (next[k] = q.get(k)));
     saveParams({ ...next, ...patch });
     location.reload();
   };

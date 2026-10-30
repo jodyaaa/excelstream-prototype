@@ -2,7 +2,7 @@
 // Same card, switched in place: badge → "방송 종료", thumbnail dimmed, video out of the autoplay pool,
 // link goes to the channel page ("보러가기" stays). The next refresh / 더보기 simply no longer returns it.
 
-import { endedBadge } from './components.js';
+import { endedBadge } from './components.js?v=213723';
 
 export function endBroadcast(card, { autoplay, status } = {}) {
   if (!card || card.classList.contains('is-ended') || card.dataset.restricted !== undefined) return false;

@@ -3,7 +3,7 @@
 // While offline: banner + videos stop (posters stay). `online` event or [다시 시도] clears it and re-evaluates autoplay.
 // QA: `?offline=1` forces the state (the browser `online` event is ignored then).
 
-import { getParams } from './params.js';
+import { getParams } from './params.js?v=213723';
 
 const forced = () => getParams().get('offline') === '1';
 const FAILURES_TO_OFFLINE = 2;

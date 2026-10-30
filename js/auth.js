@@ -12,7 +12,7 @@
 // The preview URL of a 19+ item must NEVER reach a viewer who is not `verified` — the server should
 // omit `video` / `poster` for them; this client additionally refuses to render them.
 
-import { getParams } from './params.js';
+import { getParams } from './params.js?v=213723';
 
 const STATES = ['guest', 'login', 'verified', 'creator'];
 

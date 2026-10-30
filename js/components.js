@@ -1,8 +1,8 @@
 // Markup factories. Every card is ONE <a> so click / keyboard / hover share a single target.
 // Class names follow BEM and map 1:1 to Figma layer names (see docs/layer-naming).
 
-import { getAuth, canPreviewAdult, gateFor } from './auth.js';
-import { icons } from './icons.js';
+import { getAuth, canPreviewAdult, gateFor } from './auth.js?v=213723';
+import { icons } from './icons.js?v=213723';
 
 const fmt = new Intl.NumberFormat('ko-KR');
 export const formatNumber = (n) => fmt.format(n);

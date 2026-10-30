@@ -1,14 +1,14 @@
-import { getParams } from './params.js';
-import { createAutoplay } from './autoplay.js';
-import { createLoadMore } from './loadmore.js';
-import { initShell, injectIcons, initPrototypeLinks } from './shell.js';
-import { initDevtools } from './devtools.js';
-import { initTheme } from './theme.js';
-import { renderGrade } from './grade.js';
-import { initNetwork } from './network.js';
-import { endBroadcast } from './ended.js';
-import { getAuth, isCreator } from './auth.js';
-import { liveCard, curationCard, skeletonCuration, portraitCard, shortsCard, skeletonCard, skeletonPortrait, formatNumber } from './components.js';
+import { getParams } from './params.js?v=213723';
+import { createAutoplay } from './autoplay.js?v=213723';
+import { createLoadMore } from './loadmore.js?v=213723';
+import { initShell, injectIcons, initPrototypeLinks } from './shell.js?v=213723';
+import { initDevtools } from './devtools.js?v=213723';
+import { initTheme } from './theme.js?v=213723';
+import { renderGrade } from './grade.js?v=213723';
+import { initNetwork } from './network.js?v=213723';
+import { endBroadcast } from './ended.js?v=213723';
+import { getAuth, isCreator } from './auth.js?v=213723';
+import { liveCard, curationCard, skeletonCuration, portraitCard, shortsCard, skeletonCard, skeletonPortrait, formatNumber } from './components.js?v=213723';
 import {
   CATEGORIES,
   RAIL_COUNT,
@@ -23,7 +23,7 @@ import {
   fetchInitial,
   fetchLivePage,
   fetchPopularPage,
-} from './data.js';
+} from './data.js?v=213723';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const params = getParams();

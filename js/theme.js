@@ -1,6 +1,6 @@
 // Light / Dark theme. Default follows the OS; the header toggle overrides and is remembered.
 // Tokens live in css/tokens.css (:root = Light, [data-theme="dark"] / prefers-color-scheme = Dark).
-import { icons } from './icons.js';
+import { icons } from './icons.js?v=213723';
 
 const root = document.documentElement;
 const media = window.matchMedia('(prefers-color-scheme: dark)');

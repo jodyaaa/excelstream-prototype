@@ -7,7 +7,7 @@
 //  - At most MAX_CONCURRENT videos play at once (closest to viewport centre win), re-ranked on scroll/resize.
 //  - No autoplay when: prefers-reduced-motion, Save-Data, hidden tab, offline, decode error.
 
-import { isOnline } from './network.js';
+import { isOnline } from './network.js?v=213723';
 
 const PLAY_RATIO = 0.5;
 const MAX_CONCURRENT = 8;

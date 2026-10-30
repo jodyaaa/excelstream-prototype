@@ -1,5 +1,5 @@
 // App shell: inline Material icons, mobile sidebar drawer, header search toggle (≤639px).
-import { icons } from './icons.js';
+import { icons } from './icons.js?v=213723';
 
 export function injectIcons(root = document) {
   root.querySelectorAll('[data-icon]:empty').forEach((el) => {

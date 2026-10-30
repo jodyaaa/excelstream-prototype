@@ -1,9 +1,9 @@
 // "더보기" — appends PAGE_SIZE (12) items per click.
 // States: idle -> loading (12 skeletons, aria-busy) -> idle | exhausted (row removed) | error (retry label).
 
-import { skeletonCard } from './components.js';
-import { PAGE_SIZE } from './data.js';
-import { reportFailure, reportSuccess } from './network.js';
+import { skeletonCard } from './components.js?v=213723';
+import { PAGE_SIZE } from './data.js?v=213723';
+import { reportFailure, reportSuccess } from './network.js?v=213723';
 
 export function createLoadMore({ button, list, status, initialCount, fetchPage, render, onAppend, label }) {
   let offset = initialCount;
