@@ -18,6 +18,7 @@
   --color-bg-toggle: #e9ecf1;             /* bg/toggle */
   --color-bg-toggle-selected: #ffffff;    /* bg/toggle-selected */
   --color-bg-subtle: #f3f4f7;             /* bg/subtle */
+  --skeleton-shine: color-mix(in srgb, var(--color-bg-base) 55%, var(--color-bg-placeholder)); /* shimmer highlight (derived, not a Figma token) */
   --color-bg-promo: #1c1d21;              /* bg/promo (same in both modes) */
 
   --color-text-primary: #16181d;          /* text/primary */
