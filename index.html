@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ExcelStream · 라이브</title>
+  <meta name="description" content="후원과 실시간 소통이 즐거운 라이브 플랫폼" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- apply the saved theme before first paint (no flash) -->
+  <script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body data-auth="guest">
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <div class="app">
+    <!-- ───────── Sidebar ───────── -->
+    <aside class="sidebar" id="sidebar" data-sidebar data-figma="Sidebar" aria-label="사이드 메뉴">
+      <div class="sidebar__inner">
+        <a class="sidebar__brand" href="#/" aria-label="ExcelStream 홈">ExcelStream</a>
+
+        <!-- guest: login card -->
+        <section class="login-card" data-figma="Sidebar/Login card" data-auth-guest aria-label="로그인">
+          <p class="login-card__text">로그인하고 후원과 실시간 소통을 시작해 보세요</p>
+          <a class="btn btn--dark" href="#/login">로그인</a>
+          <a class="login-card__link" href="#/creator/login">크리에이터 로그인</a>
+        </section>
+
+        <!-- logged in: profile · cash · member grade -->
+        <a class="profile" data-figma="Sidebar/Profile" data-auth-user href="#/my" aria-label="내 정보">
+          <img class="profile__avatar" data-member-avatar src="assets/img/default/avatar.svg" alt="" width="48" height="48" />
+          <span class="profile__text">
+            <span class="profile__name"><span data-member-name>NICKNAME</span><span data-icon="chevron_right"></span></span>
+            <span class="profile__role" data-member-role>시청자</span>
+          </span>
+        </a>
+        <section class="cash" data-figma="Sidebar/Cash" data-auth-user aria-label="보유 캐시">
+          <div class="cash__balance">
+            <span class="cash__label">보유 캐시</span>
+            <strong class="cash__value" data-member-cash>0</strong>
+          </div>
+          <a class="btn btn--dark btn--sm" href="#/charge">충전</a>
+        </section>
+        <section class="grade" data-figma="Sidebar/Member grade" data-auth-user data-grade aria-label="회원 등급"></section>
+
+        <nav class="side-nav" data-figma="Sidebar/Navigation" aria-label="주요 메뉴">
+          <ul>
+            <li><a class="side-nav__item" href="#/" aria-current="page"><span data-icon="space_dashboard"></span>홈</a></li>
+            <li><a class="side-nav__item" href="#/live"><span data-icon="sensors"></span>전체 방송</a></li>
+            <li><a class="side-nav__item" href="#/categories"><span data-icon="category"></span>카테고리</a></li>
+            <li><a class="side-nav__item" href="#/creators"><span data-icon="account_circle"></span>크리에이터 찾기</a></li>
+            <li><a class="side-nav__item" href="#/favorites"><span data-icon="bookmark_border"></span>즐겨찾기</a></li>
+            <li><a class="side-nav__item" href="#/community"><span data-icon="forum"></span>커뮤니티</a></li>
+          </ul>
+          <hr data-auth-user />
+          <ul data-auth-user>
+            <li><a class="side-nav__item" href="#/my"><span data-icon="account_circle"></span>내 정보</a></li>
+            <li><a class="side-nav__item" href="#/donations"><span data-icon="send"></span>후원 내역</a></li>
+            <li><a class="side-nav__item" href="#/wallet"><span data-icon="account_balance_wallet"></span>지갑</a></li>
+            <li><a class="side-nav__item" href="#/messages"><span data-icon="mail"></span>쪽지</a></li>
+            <li><a class="side-nav__item" href="#/titles"><span data-icon="star"></span>칭호</a></li>
+          </ul>
+        </nav>
+
+        <a class="btn btn--tonal btn--block" data-auth-creator href="#/creator/studio"><span data-icon="sensors"></span>크리에이터 스튜디오</a>
+      </div>
+    </aside>
+    <div class="scrim" data-scrim hidden></div>
+
+    <!-- ───────── Main ───────── -->
+    <div class="main">
+      <header class="header" data-header data-figma="Header">
+        <div class="header__inner">
+          <div class="header__left">
+            <button class="icon-btn header__burger" type="button" data-burger aria-controls="sidebar" aria-expanded="false" aria-label="메뉴 열기"><span data-icon="menu" data-size="24"></span></button>
+            <a class="header__brand" href="#/" aria-label="ExcelStream 홈">ExcelStream</a>
+          </div>
+          <div class="header__right">
+            <form class="search" data-figma="Search field" role="search" action="#/search">
+              <label class="visually-hidden" for="q">라이브, 크리에이터, 카테고리 검색</label>
+              <span class="search__icon" data-icon="search" aria-hidden="true"></span>
+              <input id="q" type="search" name="q" placeholder="라이브, 크리에이터, 카테고리 검색" autocomplete="off" />
+            </form>
+            <button class="icon-btn header__search-toggle" type="button" data-search-toggle aria-expanded="false" aria-label="검색 열기"><span data-icon="search"></span></button>
+            <button class="icon-btn" type="button" data-theme-toggle aria-label="다크 모드로 전환"></button>
+            <a class="icon-btn header__wallet" data-auth-user href="#/wallet" aria-label="지갑"><span data-icon="account_balance_wallet"></span></a>
+            <a class="icon-btn" data-auth-user href="#/notifications" aria-label="알림 3개"><span data-icon="notifications"></span><span class="icon-btn__badge" aria-hidden="true">3</span></a>
+            <a class="btn btn--dark btn--lg" data-auth-guest href="#/login">로그인</a>
+            <a class="btn btn--dark btn--lg" data-auth-creator href="#/broadcast/start"><span data-icon="sensors"></span>방송 시작</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="net-banner" role="alert" data-net-banner hidden>
+        <span>네트워크 연결을 확인해주세요</span>
+        <button class="btn btn--dark btn--sm" type="button" data-net-retry>다시 시도</button>
+      </div>
+
+      <main class="content" id="main">
+        <!-- ───────── Curation: 1 large + 2x2 small, then 더보기 (+12 = 4 x 3) ───────── -->
+        <section class="curation" aria-label="추천 라이브">
+          <ul class="curation__grid" data-curation data-figma="Curation/Mosaic"></ul>
+          <ul class="card-grid curation__more" data-figma="Live grid 4×3" data-live-list aria-label="추천 라이브 더보기 목록"></ul>
+          <div class="more-row" data-figma="More/Row" data-more-row>
+            <span class="more-row__line"></span>
+            <button class="more-btn" type="button" data-live-more><span data-label>추천 라이브 더보기</span></button>
+            <span class="more-row__line"></span>
+          </div>
+        </section>
+
+        <!-- ───────── Events ───────── -->
+        <section class="events" data-figma="Events" aria-labelledby="h-events">
+          <h2 class="section__title" id="h-events">진행 중인 이벤트 <span data-icon="chevron_right"></span></h2>
+          <ul class="events__list" data-events></ul>
+
+          <div class="promo" data-promo>
+            <div class="promo__hero" data-figma="Promo/Banner">
+              <span class="promo__glow" aria-hidden="true"></span>
+              <img class="promo__ring promo__ring--1" src="assets/img/promo/glow-1.svg" alt="" aria-hidden="true" />
+              <img class="promo__ring promo__ring--2" src="assets/img/promo/glow-2.svg" alt="" aria-hidden="true" />
+              <div class="promo__text">
+                <p class="promo__title"><span class="badge badge--live">LIVE</span>를 더 재미있게 즐겨요</p>
+                <p class="promo__desc">로그인하고 후원과 실시간 소통을 지금 바로 시작해 보세요</p>
+              </div>
+              <div class="promo__buttons">
+                <a class="btn btn--glass-primary btn--lg" href="#/login">로그인</a>
+                <a class="btn btn--glass-secondary btn--lg" href="#/creator/login">크리에이터 로그인</a>
+              </div>
+            </div>
+            <a class="first-visit" data-figma="Promo/First visit" href="#/about"><span>ExcelStream이 처음이세요?</span><span data-icon="chevron_right"></span></a>
+          </div>
+        </section>
+
+        <!-- ───────── Live list: category tabs + 4-col grid ───────── -->
+        <section class="live-list" data-figma="Live list (Tabs + Grid)" aria-label="카테고리별 라이브">
+          <div class="tabs" data-figma="Tabs" role="tablist" aria-label="카테고리" data-tabs></div>
+          <div id="tab-panel" role="tabpanel">
+            <ul class="card-grid" data-tab-list></ul>
+            <p class="empty" data-tab-empty hidden>이 카테고리에는 진행 중인 라이브가 없어요.</p>
+          </div>
+        </section>
+
+        <!-- ───────── Creator ranking ───────── -->
+        <section class="section" data-figma="Section/Creator ranking" aria-labelledby="h-rank">
+          <header class="section__head">
+            <h2 class="section__title" id="h-rank">크리에이터 랭킹 <span data-icon="chevron_right"></span></h2>
+            <div class="toggle" data-rank-toggle role="group" aria-label="랭킹 기준">
+              <button type="button" data-mode="followers" aria-pressed="true">팔로워</button>
+              <button type="button" data-mode="donation" aria-pressed="false">후원금</button>
+            </div>
+          </header>
+          <ul class="rail" data-rail data-rank-list tabindex="0" aria-label="크리에이터 랭킹 목록"></ul>
+        </section>
+
+        <section class="section" data-figma="Section/Popular shorts" aria-labelledby="h-shorts">
+          <header class="section__head"><h2 class="section__title" id="h-shorts">인기 숏츠 <span data-icon="chevron_right"></span></h2></header>
+          <ul class="rail" data-rail data-shorts-list tabindex="0" aria-label="인기 숏츠 목록"></ul>
+        </section>
+
+        <!-- ───────── Popular videos (12 + 더보기 x12) ───────── -->
+        <section class="section" data-figma="Section/Popular videos" aria-labelledby="h-popular">
+          <header class="section__head"><h2 class="section__title" id="h-popular">인기 라이브 영상 모음 <span data-icon="chevron_right"></span></h2></header>
+          <ul class="card-grid" data-popular-list></ul>
+          <div class="more-row" data-figma="More/Row" data-more-row>
+            <span class="more-row__line"></span>
+            <button class="more-btn" type="button" data-popular-more><span data-label>인기 영상 더보기</span></button>
+            <span class="more-row__line"></span>
+          </div>
+        </section>
+
+        <section class="section" data-figma="Section/Hall of fame" aria-labelledby="h-hall">
+          <header class="section__head"><h2 class="section__title" id="h-hall">명예의 전당 <span data-icon="chevron_right"></span></h2></header>
+          <ul class="rail" data-rail data-hall-list tabindex="0" aria-label="명예의 전당 목록"></ul>
+        </section>
+
+        <!-- ───────── Footer ───────── -->
+        <footer class="footer" data-figma="Footer">
+          <hr />
+          <p class="footer__links"><a href="#/terms">이용약관</a> · <a href="#/privacy">개인정보처리방침</a> · <a href="#/youth">청소년보호정책</a> · <a href="#/help">고객센터</a></p>
+          <p class="footer__copy">© 브랜드 이름 All rights reserved.</p>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <p class="visually-hidden" role="status" aria-live="polite" data-status></p>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

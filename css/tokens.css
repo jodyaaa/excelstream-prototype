@@ -1,0 +1,183 @@
+/*
+ * Design tokens — 1:1 with the Figma variable collections (v2)
+ *   Token · Color (modes Light / Dark) · Radius · Space · Layout · Type
+ * Naming:  Figma  category/role  →  CSS  --color-{category}-{role}
+ * Theme:   bare :root = Light · [data-theme="dark"] or (prefers-color-scheme: dark, no explicit light) = Dark
+ */
+:root {
+  color-scheme: light;
+
+  /* ── Token · Color (mode: Light) ──────────────────────────────────────── */
+  --color-bg-page: #f4f5f8;               /* bg/page */
+  --color-bg-base: #ffffff;               /* bg/base */
+  --color-bg-surface: #ffffff;            /* bg/surface */
+  --color-bg-hero: #e9ecf2;               /* bg/hero */
+  --color-bg-elevated: #ffffff;           /* bg/elevated */
+  --color-bg-placeholder: #e7e9ee;        /* bg/placeholder */
+  --color-bg-placeholder-light: #dadde4;  /* bg/placeholder-light */
+  --color-bg-toggle: #e9ecf1;             /* bg/toggle */
+  --color-bg-toggle-selected: #ffffff;    /* bg/toggle-selected */
+  --color-bg-subtle: #f3f4f7;             /* bg/subtle */
+  --color-bg-promo: #1c1d21;              /* bg/promo (same in both modes) */
+
+  --color-text-primary: #16181d;          /* text/primary */
+  --color-text-secondary: #454a53;        /* text/secondary */
+  --color-text-tertiary: #747983;         /* text/tertiary */
+  --color-text-muted: #8a8f99;            /* text/muted */
+  --color-text-disabled: #b7bbc4;         /* text/disabled */
+  --color-text-inverse: #ffffff;          /* text/inverse */
+  --color-text-on-glass: #16181d;         /* text/on-glass */
+  --color-text-on-color: #ffffff;         /* text/on-color */
+  --color-text-on-media: #ffffff;         /* text/on-media (text over photo / video) */
+  --color-text-on-media-muted: rgba(255, 255, 255, 0.72); /* text/on-media-muted */
+
+  --color-border-default: #e3e6ec;        /* border/default */
+  --color-border-strong: #cdd1d9;         /* border/strong */
+  --color-indicator-tab: #16181d;         /* indicator/tab */
+
+  --color-brand-primary: #3d5bff;         /* brand/primary */
+  --color-brand-soft: #e9edff;            /* brand/soft */
+  --color-status-live: #e5393a;           /* status/live */
+
+  --color-overlay-glass: rgba(255, 255, 255, 0.82);  /* overlay/glass */
+  --color-overlay-field: rgba(22, 24, 29, 0.06);     /* overlay/field */
+  --color-overlay-scrim: rgba(11, 12, 15, 0.4);      /* overlay/scrim */
+  --color-overlay-badge: rgba(0, 0, 0, 0.64);        /* overlay/badge */
+  --color-overlay-media-clear: rgba(0, 0, 0, 0);     /* overlay/media-clear */
+  --color-overlay-media-soft: rgba(0, 0, 0, 0.16);   /* overlay/media-soft */
+  --color-overlay-media-strong: rgba(0, 0, 0, 0.4);  /* overlay/media-strong */
+  --color-overlay-media-heavy: rgba(0, 0, 0, 0.64);  /* overlay/media-heavy */
+
+  --color-promo-glow-base: #0e0e0e;                  /* promo/glow-base */
+  --color-promo-glow-mid: #081b53;                   /* promo/glow-mid */
+  --color-promo-glow-light: #666666;                 /* promo/glow-light */
+  --color-promo-ring: rgba(63, 108, 255, 0.64);      /* promo/ring */
+  --color-promo-button-primary: rgba(255, 255, 255, 0.8);  /* promo/button-primary */
+  --color-promo-button-secondary: rgba(42, 43, 47, 0.8);   /* promo/button-secondary */
+
+  /* ── Token · Radius ───────────────────────────────────────────────────── */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;   /* Card/Live */
+  --radius-lg: 16px;   /* Card/Portrait, banners, outlined link */
+  --radius-xl: 20px;   /* Card/Live Overlay, event banner */
+  --radius-pill: 980px;
+
+  /* ── Token · Space ────────────────────────────────────────────────────── */
+  --space-2: 2px;
+  --space-3: 3px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-15: 15px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* ── Token · Layout ───────────────────────────────────────────────────── */
+  --sidebar-w: 256px;          /* layout/sidebar-width */
+  --header-h: 81px;            /* layout/header-height */
+  --content-w: 1120px;         /* layout/content-width */
+  --content-gutter: 32px;      /* layout/content-gutter (≤639: 16) */
+  --card-gap-x: 15px;          /* layout/card-gap-x */
+  --card-gap-y: 24px;          /* layout/card-gap-y */
+  --rail-card-w: 218px;        /* layout/rail-card-w */
+  --rail-card-h: 325px;        /* layout/rail-card-h */
+
+  /* ── Token · Type ─────────────────────────────────────────────────────── */
+  --font-sans: "Pretendard Variable", Pretendard, "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", system-ui, sans-serif;
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-17: 17px;
+  --fs-18: 18px;
+  --fs-20: 20px;
+  --fs-24: 24px;
+  --lh-16: 16px;
+  --lh-18: 18px;
+  --lh-20: 20px;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 900;
+
+  /* ── motion (code-only, not in Figma) ─────────────────────────────────── */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-fast: 160ms;
+}
+
+/* ── Token · Color (mode: Dark) ───────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-bg-page: #000000;
+    --color-bg-base: #141517;
+    --color-bg-surface: #1e1f22;
+    --color-bg-hero: #1c1d21;
+    --color-bg-elevated: #2a2b2f;
+    --color-bg-placeholder: #34363b;
+    --color-bg-placeholder-light: #44474d;
+    --color-bg-toggle: #282828;
+    --color-bg-toggle-selected: #44474d;
+    --color-bg-subtle: #26272b;
+
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #b4b7bd;
+    --color-text-tertiary: #868a91;
+    --color-text-muted: #a6a6a6;
+    --color-text-disabled: #5e5e5e;
+    --color-text-inverse: #141517;
+    --color-text-on-glass: #000000;
+
+    --color-border-default: #2e3034;
+    --color-border-strong: #4b4b4b;
+    --color-indicator-tab: #e2e2e2;
+
+    --color-brand-soft: #1f2644;
+
+    --color-overlay-glass: rgba(255, 255, 255, 0.64);
+    --color-overlay-field: rgba(255, 255, 255, 0.4);
+    --color-overlay-scrim: rgba(0, 0, 0, 0.4);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg-page: #000000;
+  --color-bg-base: #141517;
+  --color-bg-surface: #1e1f22;
+  --color-bg-hero: #1c1d21;
+  --color-bg-elevated: #2a2b2f;
+  --color-bg-placeholder: #34363b;
+  --color-bg-placeholder-light: #44474d;
+  --color-bg-toggle: #282828;
+  --color-bg-toggle-selected: #44474d;
+  --color-bg-subtle: #26272b;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b4b7bd;
+  --color-text-tertiary: #868a91;
+  --color-text-muted: #a6a6a6;
+  --color-text-disabled: #5e5e5e;
+  --color-text-inverse: #141517;
+  --color-text-on-glass: #000000;
+
+  --color-border-default: #2e3034;
+  --color-border-strong: #4b4b4b;
+  --color-indicator-tab: #e2e2e2;
+
+  --color-brand-soft: #1f2644;
+
+  --color-overlay-glass: rgba(255, 255, 255, 0.64);
+  --color-overlay-field: rgba(255, 255, 255, 0.4);
+  --color-overlay-scrim: rgba(0, 0, 0, 0.4);
+}
